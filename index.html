@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>عيد ميلاد سعيد يا سيدرة</title>
+<link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fff1f4;--bg2:#ffd3de;--ink:#4a1626;--rose:#c2185b;--gold:#a3721f;--star:#c9a24a;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){color-scheme:dark;--bg:#16050c;--bg2:#4a1230;--ink:#ffe9ee;--rose:#ff5c8a;--gold:#f3d08f;--star:#f3d08f}}
+:root[data-theme="dark"]{color-scheme:dark;--bg:#16050c;--bg2:#4a1230;--ink:#ffe9ee;--rose:#ff5c8a;--gold:#f3d08f;--star:#f3d08f}
+*{box-sizing:border-box}
+html{height:100%}
+body{margin:0;min-height:100%;background:radial-gradient(110% 80% at 50% 105%,var(--bg2),var(--bg) 70%) fixed;background-color:var(--bg);color:var(--ink);font-family:'Amiri','Noto Naskh Arabic',serif;overflow-x:hidden;text-align:center}
+h1,h2,.btn,.sig{font-family:'Aref Ruqaa','Amiri',serif}
+.scene{display:none;min-height:100vh;min-height:100dvh;flex-direction:column;align-items:center;justify-content:center;padding:24px 20px;position:relative;z-index:3}
+.scene.active{display:flex;animation:fade 1.1s ease-out}
+@keyframes fade{from{opacity:0;transform:translateY(14px)}}
+h2{font-size:clamp(1.9rem,7vw,2.8rem);margin:0 0 6px;font-weight:700}
+.hint{font-size:1.3rem;margin:0 0 6px;opacity:.85}
+.btn{font-size:1.4rem;padding:13px 38px;border:0;border-radius:50px;color:#fff;background:linear-gradient(135deg,#ff6b8f,#c2185b);cursor:pointer;box-shadow:0 10px 30px rgba(194,24,91,.45);transition:transform .25s;margin-top:10px}
+.btn:hover{transform:translateY(-3px) scale(1.04)}
+.btn:focus-visible,.env:focus-visible,.mus:focus-visible,.close:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+.big{width:min(340px,82vw);height:auto;cursor:pointer;filter:drop-shadow(0 0 28px rgba(255,92,138,.55))}
+.pulse{animation:pulse 2.4s ease-in-out infinite}
+@keyframes pulse{50%{transform:scale(1.05)}}
+.p{transition:transform 1.7s cubic-bezier(.2,.9,.3,1.15),opacity 1s}
+.name{font-size:clamp(3.4rem,15vw,6rem);margin:0;background:linear-gradient(100deg,var(--gold),var(--rose),var(--gold));background-size:200% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;animation:shine 5s linear infinite;line-height:1.35}
+@keyframes shine{to{background-position:-200% 0}}
+.cake{width:min(380px,88vw);height:auto;margin:6px 0 4px;filter:drop-shadow(0 18px 24px rgba(0,0,0,.28))}
+.flame{transform-origin:0 0;animation:flick .35s ease-in-out infinite alternate;transition:opacity .5s}
+@keyframes flick{from{transform:scale(1,1) rotate(-3deg)}to{transform:scale(.88,1.12) rotate(3deg)}}
+.glow{animation:flick .5s ease-in-out infinite alternate;transition:opacity .5s}
+.out .flame,.out .glow{opacity:0}
+.smoke{opacity:0}
+.out .smoke{animation:smoke 2.2s ease-out forwards}
+@keyframes smoke{0%{opacity:.7;transform:translateY(0)}100%{opacity:0;transform:translateY(-46px)}}
+.bouquet{width:min(360px,84vw);height:auto;margin:0 auto}
+.stem{stroke-dasharray:330;stroke-dashoffset:330;animation:grow 1.6s ease-out forwards}
+@keyframes grow{to{stroke-dashoffset:0}}
+.sway{transform-origin:200px 390px;animation:sway 5s ease-in-out infinite alternate}
+@keyframes sway{from{transform:rotate(-1.4deg)}to{transform:rotate(1.4deg)}}
+.env{background:none;border:0;cursor:pointer;color:var(--rose);font:inherit;animation:bob 2s ease-in-out infinite;margin-top:2px}
+.env svg{width:104px;height:auto;filter:drop-shadow(0 8px 14px rgba(0,0,0,.3))}
+.env span{display:block;font-size:1.25rem;margin-top:4px}
+@keyframes bob{50%{transform:translateY(-8px) rotate(-2deg)}}
+#lw{position:fixed;inset:0;z-index:20;display:none;align-items:center;justify-content:center;padding:16px;background:rgba(20,3,10,.72);backdrop-filter:blur(3px)}
+#lw.open{display:flex}
+.letter{position:relative;background:linear-gradient(#fff8f0,#ffeee0);color:#4a1626;width:min(560px,100%);max-height:86vh;overflow-y:auto;padding:46px 28px 24px;border-radius:8px;border:2px solid #d9b36b;box-shadow:0 0 0 6px #fff8f0,0 0 0 8px #d9b36b,0 26px 70px rgba(0,0,0,.5);text-align:right;font-size:1.3rem;line-height:2.05;animation:unfold .9s cubic-bezier(.2,.9,.3,1.1)}
+@keyframes unfold{from{transform:scale(.2) translateY(120px) rotate(-8deg);opacity:0}}
+.seal{position:absolute;top:-18px;left:50%;transform:translateX(-50%);width:44px;height:44px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#ff6b8f,#9d0f40);color:#fff;display:flex;align-items:center;justify-content:center;font-size:1.3rem;box-shadow:0 4px 10px rgba(0,0,0,.4)}
+.letter h2{color:#b3123f;text-align:center;margin-bottom:10px}
+.sig{text-align:left;color:#9a6b22;font-size:1.6rem;opacity:0;transition:opacity 1.2s}
+.close{display:block;margin:12px auto 0;background:none;border:1.5px solid #b3123f;color:#b3123f;padding:6px 26px;border-radius:30px;font:inherit;font-size:1.1rem;cursor:pointer}
+.mus{position:fixed;z-index:25;top:calc(12px + env(safe-area-inset-top,0px));left:12px;width:44px;height:44px;border-radius:50%;border:1.5px solid var(--gold);background:rgba(0,0,0,.25);color:var(--gold);font-size:1.2rem;cursor:pointer;display:none}
+.petal{position:fixed;top:-30px;z-index:2;pointer-events:none;width:14px;height:18px;background:linear-gradient(135deg,#ff9bb4,#c9184a);border-radius:150% 0 150% 0;opacity:.8;animation:fall linear infinite}
+@keyframes fall{to{transform:translate(var(--dx),112vh) rotate(720deg)}}
+.star{position:fixed;z-index:1;pointer-events:none;width:3px;height:3px;border-radius:50%;background:var(--star);animation:tw 3s ease-in-out infinite}
+@keyframes tw{50%{opacity:.1;transform:scale(.4)}}
+.cf{position:fixed;z-index:30;left:50%;top:48%;pointer-events:none;animation:burst 2.6s cubic-bezier(.1,.7,.3,1) forwards}
+@keyframes burst{to{transform:translate(var(--x),var(--y)) rotate(var(--r));opacity:0}}
+.cd{display:flex;gap:10px;margin:16px 0}
+.cd div{min-width:70px;padding:12px 6px;border-radius:14px;border:1.5px solid var(--gold)}
+.cd b{display:block;font-family:'Aref Ruqaa',serif;font-size:2.2rem;color:var(--rose);line-height:1.2}
+.cd small{font-size:1.05rem}
+.gift{font-size:4.2rem;animation:bob 2s ease-in-out infinite}
+@media (prefers-reduced-motion:reduce){.gift{animation:none}}
+@media (prefers-reduced-motion:reduce){.petal,.star,.sway,.env,.pulse,.name,.flame,.glow{animation:none}.p{transition:none}.stem{animation-duration:.01s}}
+</style>
+</head>
+<body>
+<button class="mus" id="mus" aria-label="الموسيقى">🎵</button>
+
+<section class="scene active" id="s0">
+  <div class="gift" aria-hidden="true">🎁</div>
+  <h2>مفاجأة لسيدرة</h2>
+  <p class="hint">ستُفتح بعد</p>
+  <div class="cd" role="timer" aria-live="off">
+    <div><b id="cd-d">0</b><small>يوم</small></div>
+    <div><b id="cd-h">00</b><small>ساعة</small></div>
+    <div><b id="cd-m">00</b><small>دقيقة</small></div>
+    <div><b id="cd-s">00</b><small>ثانية</small></div>
+  </div>
+  <p class="hint">في يوم ٢٤ نوفمبر</p>
+</section>
+
+<section class="scene" id="s1">
+  <p class="hint">شيء جميل ينتظركِ</p>
+  <h2 class="name" style="font-size:clamp(2.6rem,11vw,4rem)">يا سيدرة</h2>
+  <svg class="big pulse" id="bud" viewBox="-100 -100 200 200" aria-label="وردة"></svg>
+  <button class="btn" id="open">المسي الوردة</button>
+</section>
+
+<section class="scene" id="s2">
+  <h2>تمنّي أمنية يا سيدرة</h2>
+  <p class="hint">ثم أطفئي الشموع</p>
+  <svg class="cake" id="cake" viewBox="0 0 300 250" aria-hidden="true">
+    <ellipse cx="150" cy="226" rx="140" ry="16" fill="#f3d08f"/>
+    <rect x="38" y="148" width="224" height="76" rx="12" fill="#e8436e"/>
+    <path d="M38 160 q14 22 28 0 q14 22 28 0 q14 22 28 0 q14 22 28 0 q14 22 28 0 q14 22 28 0 q14 22 28 0 q14 22 28 0 v-12 h-224z" fill="#ffc2d1"/>
+    <rect x="76" y="98" width="148" height="54" rx="10" fill="#ffd6e0"/>
+    <path d="M76 110 q12 20 24 0 q12 20 24 0 q12 20 24 0 q12 20 24 0 q12 20 24 0 q12 20 24 0 v-12 h-144z" fill="#fff"/>
+    <g fill="#f3d08f"><circle cx="70" cy="196" r="5"/><circle cx="110" cy="204" r="5"/><circle cx="150" cy="196" r="5"/><circle cx="190" cy="204" r="5"/><circle cx="230" cy="196" r="5"/></g>
+    <g id="cds"></g>
+  </svg>
+  <button class="btn" id="blow">أطفئي الشموع</button>
+</section>
+
+<section class="scene" id="s3">
+  <h1 class="name" id="title"></h1>
+  <p class="hint" id="line" style="min-height:1.6em"></p>
+  <svg class="bouquet" viewBox="0 0 400 400" aria-hidden="true">
+    <g class="sway">
+      <g fill="none" stroke="#2f8a58" stroke-width="5" stroke-linecap="round">
+        <path class="stem" d="M200 395 C200 320 200 250 200 150"/>
+        <path class="stem" style="animation-delay:.3s" d="M192 395 C170 330 120 280 108 210"/>
+        <path class="stem" style="animation-delay:.5s" d="M208 395 C230 330 280 280 292 210"/>
+      </g>
+      <g fill="#3fa56c">
+        <path d="M200 330 q-52 -30 -74 -4 q42 30 74 4z"/><path d="M200 306 q52 -30 74 -4 q-42 30 -74 4z"/>
+        <path d="M150 360 q-40 -10 -52 14 q34 14 52 -14z"/><path d="M250 360 q40 -10 52 14 q-34 14 -52 -14z"/>
+      </g>
+      <g id="r2" transform="translate(108 208) scale(.72)"></g>
+      <g id="r3" transform="translate(292 208) scale(.72)"></g>
+      <g id="r1" transform="translate(200 150) scale(.92)"></g>
+    </g>
+  </svg>
+  <button class="env" id="env" aria-label="افتحي الرسالة">
+    <svg viewBox="0 0 120 84"><rect x="2" y="2" width="116" height="80" rx="6" fill="#fff8f0" stroke="#c2185b" stroke-width="3"/><path d="M4 6 L60 50 L116 6" fill="none" stroke="#c2185b" stroke-width="3"/><circle cx="60" cy="48" r="12" fill="#c2185b"/><path d="M60 55 l-6 -6 a3.4 3.4 0 0 1 6 -4.4 a3.4 3.4 0 0 1 6 4.4z" fill="#fff"/></svg>
+    <span>رسالة لكِ… اضغطي لفتحها</span>
+  </button>
+</section>
+
+<div id="lw" role="dialog" aria-modal="true" aria-label="الرسالة">
+  <div class="letter">
+    <div class="seal">❤</div>
+    <h2>إلى سيدرة ❤</h2>
+    <div id="lt" style="white-space:pre-wrap"></div>
+    <div class="sig" id="sg">حبيبكِ ❤</div>
+    <button class="close" id="cl">إغلاق</button>
+  </div>
+</div>
+
+<script>
+(function(){
+  var NS='http://www.w3.org/2000/svg',$=function(i){return document.getElementById(i)};
+  function rose(g,hueShift){
+    var D='M0 0 C-34 -14 -46 -52 -9 -73 C0 -77 0 -77 9 -73 C46 -52 34 -14 0 0Z',ps=[];
+    for(var i=0;i<13;i++){
+      var a=i*137.5,s=.26+i*.068,p=document.createElementNS(NS,'path');
+      p.setAttribute('d',D);p.setAttribute('class','p');
+      p.setAttribute('fill','hsl('+(345+hueShift)+' 78% '+(24+i*3.2)+'%)');
+      p.setAttribute('stroke','hsla(345,80%,12%,.45)');p.setAttribute('stroke-width','1.4');
+      p.style.opacity=.9;p.style.transitionDelay=(i*.09)+'s';
+      p.dataset.a=a;p.dataset.s=s;
+      p.style.transform='rotate('+a+'deg) scale('+(s*.4)+')';
+      g.appendChild(p);ps.push(p);
+    }
+    return ps;
+  }
+  function openRose(ps,extra){
+    setTimeout(function(){ps.forEach(function(p){p.style.transform='rotate('+(+p.dataset.a+14)+'deg) scale('+p.dataset.s+')'})},extra||30);
+  }
+  var bud=rose($('bud'),0);
+
+  // background: stars + petals
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(!reduce){
+    var i;
+    for(i=0;i<50;i++){var s=document.createElement('div');s.className='star';s.style.left=Math.random()*100+'vw';s.style.top=Math.random()*100+'vh';s.style.animationDelay=(Math.random()*3)+'s';document.body.appendChild(s)}
+    for(i=0;i<24;i++){var p=document.createElement('div');p.className='petal';p.style.left=Math.random()*100+'vw';p.style.setProperty('--dx',(Math.random()*160-80)+'px');p.style.animationDuration=(8+Math.random()*8)+'s';p.style.animationDelay=(-Math.random()*14)+'s';p.style.scale=(.6+Math.random()*.9);document.body.appendChild(p)}
+  }
+
+  // cake candles
+  var cds=$('cds'),xs=[110,150,190];
+  xs.forEach(function(x,k){
+    cds.insertAdjacentHTML('beforeend','<rect x="'+(x-5)+'" y="62" width="10" height="38" rx="3" fill="'+(k%2?'#ffd6e0':'#f3d08f')+'"/><rect x="'+(x-5)+'" y="72" width="10" height="5" fill="#e8436e" opacity=".6"/><rect x="'+(x-5)+'" y="84" width="10" height="5" fill="#e8436e" opacity=".6"/>'+
+    '<g transform="translate('+x+' 60)"><circle class="glow" r="15" cy="-14" fill="#ffd36b" opacity=".25"/><g class="flame"><path d="M0 0 C-8 -8 -6 -20 0 -30 C6 -20 8 -8 0 0Z" fill="#ffb02e"/><path d="M0 0 C-4 -5 -3 -12 0 -17 C3 -12 4 -5 0 0Z" fill="#fff3b0"/></g><circle class="smoke" r="4" cy="-20" fill="#fff"/><circle class="smoke" r="3" cx="5" cy="-30" fill="#fff"/></g>');
+  });
+
+  function show(id){document.querySelectorAll('.scene').forEach(function(s){s.classList.toggle('active',s.id===id)});window.scrollTo(0,0)}
+  function type(el,t,sp,cb){var i=0;(function f(){if(i<=t.length){el.textContent=t.slice(0,i++);setTimeout(f,sp)}else if(cb)cb()})()}
+  function confetti(){
+    var C=['#ff6b8f','#f3d08f','#ffc2d1','#ffffff','#e8436e','❤','🌹'];
+    for(var i=0;i<70;i++){
+      var d=document.createElement('div'),c=C[Math.floor(Math.random()*C.length)],an=Math.random()*Math.PI*2,r=120+Math.random()*260;
+      d.className='cf';
+      if(c.length>1){d.textContent=c;d.style.fontSize=(14+Math.random()*14)+'px'}
+      else{d.style.width='9px';d.style.height='14px';d.style.background=c;d.style.borderRadius='2px'}
+      d.style.setProperty('--x',Math.cos(an)*r+'px');d.style.setProperty('--y',(Math.sin(an)*r+150)+'px');d.style.setProperty('--r',(Math.random()*900-450)+'deg');
+      document.body.appendChild(d);
+      (function(e){setTimeout(function(){e.remove()},2700)})(d);
+    }
+  }
+
+  // music: Happy Birthday
+  var ac,oscs=[],on=false,N={C:261.6,D:293.7,E:329.6,F:349.2,G:392,A:440,B:466.2,H:523.3};
+  var T=[['C',.35],['C',.15],['D',.5],['C',.5],['F',.5],['E',1],['C',.35],['C',.15],['D',.5],['C',.5],['G',.5],['F',1],['C',.35],['C',.15],['H',.5],['A',.5],['F',.5],['E',.5],['D',.5],['B',.35],['B',.15],['A',.5],['F',.5],['G',.5],['F',1]];
+  function stop(){oscs.forEach(function(o){try{o.stop()}catch(e){}});oscs=[];on=false;$('mus').textContent='🎵'}
+  function play(){
+    try{
+      stop();ac=ac||new(window.AudioContext||window.webkitAudioContext)();
+      var t=ac.currentTime+.1,tot=0;
+      T.forEach(function(n){var o=ac.createOscillator(),g=ac.createGain();o.type='triangle';o.frequency.value=N[n[0]];
+        g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(.16,t+.03);g.gain.exponentialRampToValueAtTime(.001,t+n[1]*.95);
+        o.connect(g);g.connect(ac.destination);o.start(t);o.stop(t+n[1]);oscs.push(o);t+=n[1];tot+=n[1]});
+      on=true;$('mus').textContent='🔇';
+      setTimeout(function(){if(on)stop()},tot*1000+200);
+    }catch(e){}
+  }
+  $('mus').onclick=function(){on?stop():play()};
+
+  var TARGET=Date.UTC(2026,10,23,22,0,0),ci; // 24 نوفمبر 2026 الساعة 00:00 بتوقيت القاهرة
+  function pad(n){return (n<10?'0':'')+n}
+  function tick(){
+    var d=TARGET-Date.now();
+    if(d<=0){clearInterval(ci);show('s1');return}
+    var s=Math.floor(d/1000);
+    $('cd-d').textContent=Math.floor(s/86400);
+    $('cd-h').textContent=pad(Math.floor(s%86400/3600));
+    $('cd-m').textContent=pad(Math.floor(s%3600/60));
+    $('cd-s').textContent=pad(s%60);
+  }
+  if(Date.now()>=TARGET||location.hash==='#preview'){show('s1')}else{tick();ci=setInterval(tick,1000)}
+
+  $('open').onclick=$('bud').onclick=function(){
+    openRose(bud);$('open').style.display='none';$('bud').classList.remove('pulse');
+    setTimeout(function(){show('s2');$('mus').style.display='block';play()},3000);
+  };
+  $('blow').onclick=function(){
+    $('cake').classList.add('out');$('blow').style.display='none';
+    setTimeout(confetti,500);
+    setTimeout(function(){
+      show('s3');
+      var rs=['r1','r2','r3'];rs.forEach(function(id,k){var ps=rose($(id),k?-4:0);openRose(ps,500+k*350)});
+      type($('title'),'عيد ميلاد سعيد يا سيدرة',95,function(){$('line').textContent='كل عام وأنتِ أجمل ورد في حياتي'});
+    },2600);
+  };
+
+  var full='في هذا اليوم وُلدت أجمل الأشياء في حياتي. أنتِ الضحكة التي تُنسيني تعب الأيام، وأنتِ الأمان حين يضيق بي العالم.\n\nلم أعرف معنى أن يكون القلب مطمئنًا حتى عرفتكِ يا سيدرة. كل لحظة معكِ هدية، وكل يوم بجانبكِ عيد.\n\nأتمنى لكِ عامًا مليئًا بالفرح والنجاح، وأحلامًا تتحقق واحدًا تلو الآخر، وأن أكون دائمًا بقربكِ أشاركُكِ كل خطوة فيه.\n\nكل سنة وأنتِ حبيبتي وأجمل ما في عمري.',tm;
+  $('env').onclick=function(){
+    $('lw').classList.add('open');$('sg').style.opacity=0;
+    var i=0;clearInterval(tm);
+    tm=setInterval(function(){$('lt').textContent=full.slice(0,++i);if(i>=full.length){clearInterval(tm);$('sg').style.opacity=1}},45);
+  };
+  $('lt').onclick=function(){clearInterval(tm);$('lt').textContent=full;$('sg').style.opacity=1};
+  $('cl').onclick=function(){clearInterval(tm);$('lw').classList.remove('open')};
+})();
+</script>
+</body>
+</html>
